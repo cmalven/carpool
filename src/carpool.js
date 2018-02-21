@@ -1,4 +1,4 @@
-var defaultsDeep = require('lodash.defaultsdeep');
+var objectAssign = require('object-assign');
 var domify = require('domify');
 
 module.exports = function(options) {
@@ -17,11 +17,11 @@ module.exports = function(options) {
   //
   //////////////////////////////////////////////////////////////////////
  
-  self.settings = defaultsDeep(options, {
+  self.settings = objectAssign({
     contentSelector: '.js-content',
     fetch: window.fetch ? window.fetch.bind(window) : null,
     origin: window.location.origin
-  });
+  }, options);
  
  
   //
