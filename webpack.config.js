@@ -7,5 +7,6 @@ module.exports = {
     filename: 'carpool.js',
     library: 'Carpool',
     libraryTarget: 'umd'
-  }
+  },
+  stats: 'verbose'
 }
