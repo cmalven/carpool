@@ -1,6 +1,6 @@
 {
   "name": "carpool",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Tools for asynchronously updating your current HTML with HTML from another URL.",
   "repository": {
     "type": "git",
