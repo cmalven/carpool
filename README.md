@@ -9,11 +9,11 @@ Tools for asynchronously updating your current HTML with HTML from another URL.
 
 Let’s say you are building a website and you want to nicely transition between pages of that site without ever actually reloading a page, instead loading the HTML for each new page asynchronously and replacing the HTML of the existing page with the new page.
 
-There are plenty of libraries that will handle _all_ of this for you – preventing default link behavior, updating your browser history, fetching the contents of the new page, replacing the contents of the current page, etc – but sometimes you don't want a library that handles _all_ of these things.
+There are plenty of libraries that will handle _all_ of this for you – preventing default link behavior, updating your browser history, fetching the contents of the new page, replacing the contents of the current page, animating between pages, etc – but sometimes you don't want a library that handles _all_ of these things.
 
 **Carpool specifically handles the loading and replacing of new HTML in the above scenario.**
 
-If you plan to build a single-page site, you can use Carpool to fetch and update the HTML, but you'll need something else to handle routing and transition. I personally prefer [roadtrip](https://github.com/Rich-Harris/roadtrip) for handling routing and [gsap](https://greensock.com/gsap) for handling animated transitions.
+If you plan to build a single-page site, you can use Carpool to fetch and update the HTML, but you'll need something else to handle routing and transitions. I personally prefer [roadtrip](https://github.com/Rich-Harris/roadtrip) for handling routing and [gsap](https://greensock.com/gsap) for handling animated transitions.
 
 
 ## Installing Carpool
