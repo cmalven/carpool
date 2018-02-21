@@ -1,0 +1,27 @@
+{
+  "name": "carpool",
+  "version": "0.1.0",
+  "description": "Tools for asynchronously updating your current HTML with HTML from another URL.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cmalven/carpool.git"
+  },
+  "main": "/dist/carpool.js",
+  "keywords": [],
+  "author": "Chris Malven",
+  "license": "MIT",
+  "homepage": "https://github.com/cmalven/carpool",
+  "dependencies": {
+    "domify": "^1.4.0",
+    "lodash.defaultsdeep": "^4.6.0"
+  },
+  "devDependencies": {
+    "jest": "^22.4.0",
+    "webpack": "^3.11.0"
+  },
+  "scripts": {
+    "start": "webpack --watch & jest --watchAll",
+    "build": "webpack",
+    "test": "jest"
+  }
+}
