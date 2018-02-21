@@ -98,7 +98,7 @@ module.exports = function(options) {
  
   self.settings = defaultsDeep(options, {
     contentSelector: '.js-content',
-    fetch: window.fetch,
+    fetch: window.fetch ? window.fetch.bind(window) : null,
     origin: window.location.origin
   });
  
@@ -109,6 +109,9 @@ module.exports = function(options) {
   //////////////////////////////////////////////////////////////////////
  
   var _loadFromUrl = function(url) {
+    // Error if window fetch is unavailable
+    if (!self.settings.fetch) throw 'Carpool requires window.fetch. If you need to support browsers without support for fetch, consider using a fetch polyfill.'
+
     return new Promise(function(resolve, reject) {
       self.settings.fetch(url)
         .then(function(response) {
