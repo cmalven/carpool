@@ -116,6 +116,57 @@ APP.router.start();
 ```
 
 
+## API
+
+### Carpool(options)
+
+Creates a new Carpool instance.
+
+```js
+let carpool = new Carpool({
+    contentSelector: '.js-content' // The selector for HTML element to load/replace
+});
+```
+
+### carpool.load(url)
+
+If the url hasn't been previously loaded, this will fetch the HTML contents of the page at the given URL. If the page has been previously loaded, it will return the cached contents of that page. In either case, `.load()` will return a Promise that resolves with the page's HTML.
+
+```js
+carpool.load('http://mysite.com/about').then(function(html) {
+    // Do something with `html`
+});
+```
+
+### carpool.cache(url)
+
+Immediately add the HTML for the current page to carpool's cache, using the passed `url` as a key. This can be useful for caching the contents of the initial page visit so it won't need to be fetched in the future.
+
+```js
+carpool.addToCache('http://mysite.com/about');
+```
+
+### carpool.replaceHtml(html)
+
+Finds the element in the current document that matches the `contentSelector` selector, and replaces it with the passed `html`. This will also automatically update certain elements in the head of the document, such as `<title>`.
+
+```js
+carpool.replaceHtml('<!doctype html>…');
+```
+
+### carpool.getCache()
+
+Returns the contents of carpool's cache, an object with keys equal to URLs and values equal to the HTML content for that URL.
+
+```js
+carpool.getCache();
+```
+
+### carpool.getRouteData(route)
+
+**Specifically intended to be used with [roadtrip](https://github.com/Rich-Harris/roadtrip)**. This is a helper function for easy integration with roadtrip. Takes a roadtrip `route` parameter and automatically fetches the HTML content for that route and returns a Promise that resolves with that HTML content when ready. See the [Using Carpool](#using-carpool) example earlier in these docs for its usage.
+
+
 ## Browser Support
 
 Carpool requires `window.fetch` and `window.Promise` which are available in most new browsers. I recommend you use the following polyfills if you need to support older browsers:
