@@ -157,13 +157,21 @@ module.exports = function(options) {
     return self.load(fullPath);
   };
 
-  self.replaceHtml = function(html) {
+  self.replaceHtml = function(html, containerEl) {
     var newHtml = domify(html);
+    var newContentContainer = null;
+
+    if (typeof containerEl === 'undefined') {
+      newContentContainer = document.querySelectorAll(contentSelector)[0];
+    } else {
+      newContentContainer = containerEl;
+    }
+
     var contentSelector = self.settings.contentSelector;
     var newContent = newHtml.querySelectorAll(contentSelector)[0];
     var newTitle = newHtml.querySelectorAll('title')[0].textContent;
     document.querySelectorAll('title')[0].textContent = newTitle;
-    document.querySelectorAll(contentSelector)[0].outerHTML = newContent.outerHTML;
+    newContentContainer.outerHTML = newContent.outerHTML;
   };
 
   self.getCache = function() {
